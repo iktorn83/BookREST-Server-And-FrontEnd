@@ -1,0 +1,16 @@
+table th{
+    text-align: center;
+    justify-content: center;
+}
+#tableInside{
+    text-align: center;
+    justify-content: center;
+    width: 60% !important;
+    margin-left: 20%;
+}
+#inputInside{
+    text-align: center;
+    justify-content: center;
+    width: 70% !important;
+    margin-left: 15%;
+}

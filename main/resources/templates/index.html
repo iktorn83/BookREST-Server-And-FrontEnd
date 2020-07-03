@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>BookREST</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css" type="text/css"/>
+    <script type="text/javascript" src="angular.min.js" th:src="@{/angular.min.js}"></script>
+    <script type="text/javascript" src="app/app.module.js" th:src="@{/app/app.module.js}"></script>
+    <script type="text/javascript" src="app/book.controller.js" th:src="@{/app/book.controller.js}"></script>
+</head>
+<body ng-app="app" ng-controller="BookController as vm">
+<header class="jumbotron text-center">
+   
+    <h1>BookREST Application</h1>
+    <p>Simple Book CRUD Web App</p>
+
+</header>
+
+<div class="container-fluid">
+
+    <div id="inputInside" class="">
+        <div class="row">
+            <label>Autor <input type="text" name="author" ng-model="vm.author" class="input-sm spacing"/></label>
+            <label>Rok <input type="text" name="year" ng-model="vm.year" class="input-sm spacing"/></label>
+            <label>Tytuł <input type="text" name="title" ng-model="vm.title" class="input-sm spacing"/></label>
+
+            <button ng-click="vm.addBook(vm.author,vm.year,vm.title)" class="btn btn-sm btn-info">Dodaj ksiażkę</button>
+
+        </div>
+    </div>
+    <hr/>
+
+    <div id="tableInside" class="row justify-content-center text-center">
+        <div class="col-auto">
+            <table class="table table-responsive">
+                <thead>
+                <tr>
+                    <th>Nazwa</th>
+                    <th>Autor</th>
+                    <th>Rok wydania</th>
+                    <th style="width: 90px"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="book in vm.books">
+                    <td>{{book.name}}</td>
+                    <td>{{book.author}}</td>
+                    <td>{{book.year}}</td>
+                    <td>
+                        <button class="btn btn-danger" ng-click="vm.deleteBook(book.id)">Usuń</button>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<br><br>
+</body>
+<div class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container">
+        <p class="navbar-text pull-left">© 2020 - Wiktor Kowalczyk</p>
+        <p class="navbar-text pull-right" th:text="${#dates.format(datetime, 'dd.MM.yyyy HH:mm')}">Data.</p>
+
+    </div>
+
+</div>
+</html>
