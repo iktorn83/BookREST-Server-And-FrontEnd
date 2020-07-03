@@ -1,4 +1,4 @@
-# BookREST Server+And+Frontend
+# BookREST Server And Frontend -MVC
 
 Server to support representational state transfer of books with web application.
 
